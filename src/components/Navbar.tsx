@@ -13,7 +13,7 @@ import MenuItem from '@mui/material/MenuItem';
 import PokeFlixLogo from '../assets/pokeflix_logo.png';
 
 interface Props {
-  // Define props here
+  // Define any props required here if we need to add props in future
 }
 
 interface Pages {
@@ -45,7 +45,7 @@ const Navbar: React.FC<Props> = (props) => {
 
   return (
     <AppBar position='static' color='default'>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Toolbar disableGutters>
           <Link to="/">
             <Box
