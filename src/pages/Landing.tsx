@@ -1,12 +1,12 @@
 import { Container, Paper, InputBase, IconButton, Grid, CircularProgress, Typography } from '@mui/material';
-import React, { useState, ChangeEvent, useEffect } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
-import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../app/store';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { fetchData } from '../features/omdbApiSlice';
 import { AnyAction } from 'redux';
 import MovieDetailsCard from '../components/MovieDetailsCard';
+import { useAppDispatch, useAppSelector } from '../app/hooks';
 
 interface Props {
   // Define any props required here if we need to add props in future
@@ -14,12 +14,8 @@ interface Props {
 
 const Landing: React.FC<Props> = (props) => {
   const [inputQuery, setInputQuery] = useState<string | undefined>(undefined);
-  const dispatch: ThunkDispatch<RootState, undefined, AnyAction> = useDispatch();
-  const { data, loading, error } = useSelector((state: RootState) => state.omdbApi);
-
-  useEffect(() => {
-    console.log(data)
-  }, [data])
+  const dispatch: ThunkDispatch<RootState, undefined, AnyAction> = useAppDispatch();
+  const { data, loading, error } = useAppSelector((state: RootState) => state.omdbApi);
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>): void => {
     setInputQuery(e.target.value);
@@ -28,7 +24,6 @@ const Landing: React.FC<Props> = (props) => {
   const handleMovieSearch = () => {
     if (inputQuery) {
       dispatch(fetchData({ inputQuery }));
-      setInputQuery('')
     }
   }
   return (
@@ -70,6 +65,7 @@ const Landing: React.FC<Props> = (props) => {
           {data?.Search.map((movie) => {
             return (
               <MovieDetailsCard
+                key={movie?.imdbID}
                 Poster={movie?.Poster}
                 Title={movie?.Title}
                 Type={movie?.Type}
