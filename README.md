@@ -45,9 +45,9 @@ $ npm i --force
 
 # Create a .env file in the root of the directory, following the template from .env.template in the repo
 REACT_APP_OMDB_API_URL = http://www.omdbapi.com/
-REACT_APP_OMDB_API_KEY = 'Add your OMDB Api key here'
+REACT_APP_OMDB_API_KEY = Add your OMDB Api key here
 # If you don't have an API key or are just too lazy to register for one, go ahead and use mine!
-# Just replace the 'Add your OMDB Api key here' in .env with c3d21366
+# Just replace the Add your OMDB Api key here in .env with c3d21366
 
 # Run the app
 $ npm start
