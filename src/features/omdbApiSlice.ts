@@ -24,6 +24,7 @@ interface ApiState {
 
 interface FetchDataParams {
   inputQuery: string | undefined;
+  page?: number;
 }
 
 const initialState: ApiState = {
@@ -33,7 +34,7 @@ const initialState: ApiState = {
 };
 
 export const fetchData = createAsyncThunk('omdbApi/fetchData', async (params: FetchDataParams) => {
-  const response: AxiosResponse<ApiData> = await axios.get(`${process.env.REACT_APP_OMDB_API_URL}?s=${params.inputQuery}&type=movie&apikey=${process.env.REACT_APP_OMDB_API_KEY}`);
+  const response: AxiosResponse<ApiData> = await axios.get(`${process.env.REACT_APP_OMDB_API_URL}?s=${params.inputQuery}&type=movie&page=${params?.page}&apikey=${process.env.REACT_APP_OMDB_API_KEY}`);
   return response.data;
 });
 

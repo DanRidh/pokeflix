@@ -1,12 +1,12 @@
 import React from 'react';
 import { useAppSelector } from '../app/hooks';
 import { MovieDetails } from '../features/omdbApiSlice';
-import { Container,  Grid, Typography } from '@mui/material';
-import MovieDetailsCard from '../components/MovieDetailsCard';
+import { Container, Typography } from '@mui/material';
 import { getFavoritedMovies } from '../features/favoriteMoviesSlice';
+import MovieGrid from '../components/MovieGrid';
 
 interface Props {
-  // Define props here
+  // Define any props required here if we need to add props in future
 }
 
 const Favorites: React.FC<Props> = (props) => {
@@ -23,20 +23,7 @@ const Favorites: React.FC<Props> = (props) => {
       flexDirection: 'column'
     }}>
     {favoritedMovies.length > 0 ? (
-        <Grid container spacing={2} sx={{ mt:6 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-          {favoritedMovies?.map((movie) => {
-            return (
-              <MovieDetailsCard
-                key={movie?.imdbID}
-                Poster={movie?.Poster}
-                Title={movie?.Title}
-                Type={movie?.Type}
-                Year={movie?.Year}
-                imdbID={movie?.imdbID}
-              />
-            )
-          })}
-        </Grid>
+        <MovieGrid movies={favoritedMovies} />
       ) : (
         <Typography sx={{ mt: 6 }}>Add some movies to your favorites!</Typography>
       )}
