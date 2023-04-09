@@ -2,11 +2,21 @@ import { configureStore } from '@reduxjs/toolkit';
 import omdbApiReducer from '../features/omdbApiSlice';
 import favoriteMoviesReducer from '../features/favoriteMoviesSlice';
 import thunkMiddleware from 'redux-thunk';
+import storage from 'redux-persist/lib/storage';
+import { persistReducer } from 'redux-persist';
+
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage
+};
+
+const persistedFavoritesReducer = persistReducer(persistConfig, favoriteMoviesReducer);
 
 export const store = configureStore({
   reducer: {
     omdbApi: omdbApiReducer,
-    favoriteMovies: favoriteMoviesReducer
+    persistedFavoritesReducer
   },
   middleware: [thunkMiddleware],
 });

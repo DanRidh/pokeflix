@@ -1,5 +1,5 @@
 import { Container, CircularProgress, Typography, Pagination } from '@mui/material';
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import { RootState } from '../app/store';
 import { ThunkDispatch } from '@reduxjs/toolkit';
 import { fetchData } from '../features/omdbApiSlice';

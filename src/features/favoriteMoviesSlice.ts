@@ -25,6 +25,6 @@ const favoriteMoviesSlice = createSlice({
   }
 });
 
-export const getFavoritedMovies = (state: RootState) => state.favoriteMovies.favoritedMovies;
+export const getFavoritedMovies = (state: RootState) => state.persistedFavoritesReducer.favoritedMovies;
 export const { addMovieToFavorites, removeMovieFromFavorites } = favoriteMoviesSlice.actions;
 export default favoriteMoviesSlice.reducer;
