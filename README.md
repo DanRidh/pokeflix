@@ -40,7 +40,8 @@ $ git clone https://github.com/DanRidh/pokeflix.git
 $ cd pokeflix
 
 # Install dependencies
-$ npm install
+$ npm i --force
+# This is if you're facing some weird dependency issues cause by jest and npm
 
 # Create a .env file in the root of the directory, following the template from .env.template in the repo
 REACT_APP_OMDB_API_URL = http://www.omdbapi.com/
