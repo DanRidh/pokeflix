@@ -1,46 +1,62 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+<h1 align="center">
+  <br>
+  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="src/assets/pokeflix_logo.png" alt="pokeflix" width="300"></a>
+  <br>
+  Pocket Change Movie Searcher (and favoriter)
+  <br>
+</h1>
 
-## Available Scripts
+<h4 align="center">A simple movie searcher and favorite list storage app built with <a href="https://react.dev/" target="_blank">React</a>.</h4>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#key-features">Key Features</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#how-to-test">How To Test</a>
+</p>
 
-### `npm start`
+![pokeflix_demo](https://user-images.githubusercontent.com/75971735/230759403-f8be0e5e-2e0b-44c6-88af-8338bc2da6fc.gif)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Key Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Design based on [pocketchange](https://www.pocket-change.jp/en/) and [pocketpay](https://pay.pocket-change.jp/) website UI
+  - Using MUI (MaterialUI) and some custom styling with styled()
+* Uses redux, redux-toolkit for state management and redux-persist for persistant storage when storing favorites
+* Using the [OMDB API](https://www.omdbapi.com/) to fetch the movie details
+* Add or remove movies from your favorites list and view them on your favorites page
+  - unless you clear your cache then unfortunately its all gone :cry:
+* Pagination using MUI Pagination component
+* Unit testing with Jest
 
-### `npm test`
+## How To Use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-### `npm run build`
+```bash
+# Clone this repository
+$ git clone https://github.com/DanRidh/pokeflix.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Go into the repository
+$ cd pokeflix
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Install dependencies
+$ npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Create a .env file in the root of the directory, following the template from .env.template in the repo
+REACT_APP_OMDB_API_URL = http://www.omdbapi.com/
+REACT_APP_OMDB_API_KEY = 'Add your OMDB Api key here'
+# If you don't have an API key or are just too lazy to register for one, go ahead and use mine!
+# Just replace the 'Add your OMDB Api key here' in .env with c3d21366
 
-### `npm run eject`
+# Run the app
+$ npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## How to Test
+```bash
+# Assuming the above setup was all good, you can just run this in the project root
+$ npm test
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Special Thanks To
+* Coffee :coffee:
